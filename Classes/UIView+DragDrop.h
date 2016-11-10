@@ -26,15 +26,23 @@ typedef NS_ENUM( NSInteger, UIViewDragDropMode) {
  *    views: NSArray of drop views
  *    delegate: id delegate conforming to UIViewDragDropDelegave protocol
  */
-- (void) makeDraggableWithDropViews:(NSArray *)views delegate:(id<UIViewDragDropDelegate>)delegate;
+- (void) enableDraggingWithDropViews:(NSArray*)dropViews delegate:(id<UIViewDragDropDelegate>)delegate;
 
-- (void) makeDraggable;
+- (void) enableDragging;
 
-- (void) setDelegate:(id<UIViewDragDropDelegate>)delegate;
+- (void) stopDragging;
 
-- (void) setDragMode:(UIViewDragDropMode)mode;
+- (void) setDragDropDelegate:(id<UIViewDragDropDelegate>)delegate;
 
-- (void) setDropViews:(NSArray*)views;
+- (void) changeDragMode:(UIViewDragDropMode)mode;
+
+- (void) changeDropViews:(NSArray*)views;
+
+- (void) changeAnimationDuration:(float)seconds;
+
+- (void) saveStartingPosition:(BOOL)flag;
+
+- (void) moveToStartingPosition;
 
 @end
 
@@ -49,10 +57,14 @@ typedef NS_ENUM( NSInteger, UIViewDragDropMode) {
 
 - (BOOL) viewShouldReturnToStartingPosition:(UIView*)view;
 
+- (void) viewDidReturnToStartingPosition;
+
 - (void) draggingDidBeginForView:(UIView*)view;
-- (void) draggingDidEndWithoutDropForView:(UIView*)view;
+
+- (void) draggingDidEndOutsideDropView:(UIView*)view;
 
 - (void) view:(UIView *)view didHoverOverDropView:(UIView *)dropView;
+
 - (void) view:(UIView *)view didUnhoverOverDropView:(UIView *)dropView;
 
 @end

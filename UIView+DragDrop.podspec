@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "UIView+DragDrop"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "Objective-C category adding drag and drop functionality to UIView"
   s.description      = "Simple interface for adding drag and drop functionality to UIViews"
   s.homepage         = "http://github.com/ryanmeisters/UIView-DragDrop"
